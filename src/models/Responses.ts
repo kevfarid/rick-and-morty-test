@@ -1,4 +1,4 @@
-interface Responses<T> {
+interface Responses<T = any> {
   info: {
     count: number;
     pages: number;

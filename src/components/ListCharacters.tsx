@@ -10,8 +10,8 @@ export default function ListCharacters({ items }: { items: Character[] }) {
       gridTemplateColumns='repeat(auto-fill,minmax(200px,1fr))'
       gridGap='1rem'
     >
-      {items.map((item) => (
-        <CharacterComponent key={item.id} {...item} />
+      {items.map((item, index) => (
+        <CharacterComponent key={item.id + item.name + index} {...item} />
       ))}
     </Box>
   );
