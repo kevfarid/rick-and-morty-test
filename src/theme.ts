@@ -10,13 +10,7 @@ const theme = extendTheme(
       global: {
         'body, html': {
           padding: 0,
-          margin: '2rem auto',
-          maxWidth: '1280px',
-        },
-        '@media (max-width: 1280px)': {
-          'body, html': {
-            padding: '4rem',
-          },
+          margin: '0 auto',
         },
         '*': {
           boxSizing: 'border-box',

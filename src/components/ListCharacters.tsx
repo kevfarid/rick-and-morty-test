@@ -1,8 +1,12 @@
+import { Box } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+
 import CharacterComponent from './Character';
 import Character from '../models/Character';
-import { Box } from '@chakra-ui/react';
 
 export default function ListCharacters({ items }: { items: Character[] }) {
+  const navigate = useNavigate();
+
   return (
     <Box
       display='grid'
@@ -11,7 +15,11 @@ export default function ListCharacters({ items }: { items: Character[] }) {
       gridGap='1rem'
     >
       {items.map((item, index) => (
-        <CharacterComponent key={item.id + item.name + index} {...item} />
+        <CharacterComponent
+          key={item.id + item.name + index}
+          {...item}
+          onClick={() => navigate(`/${item.id}`)}
+        />
       ))}
     </Box>
   );

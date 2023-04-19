@@ -1,9 +1,19 @@
 import { Box, Card, Heading, Image, Text } from '@chakra-ui/react';
 import Character from '../models/Character';
 
-export default function CharacterComponent({ id, name, image }: Character) {
+interface Props extends Character {
+  onClick?: () => void;
+}
+
+export default function CharacterComponent({
+  id,
+  name,
+  image,
+  onClick,
+}: Props) {
   return (
     <Card
+      onClick={onClick}
       maxW='sm'
       id={id}
       maxWidth={200}

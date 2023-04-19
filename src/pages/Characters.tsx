@@ -77,10 +77,9 @@ export default function Characters() {
           variant='outline'
           maxWidth={150}
           onClick={loadMore}
-          disabled={isLoading}
-          leftIcon={isLoading ? <SpinnerIcon /> : <AddIcon />}
+          isLoading={isLoading}
         >
-          {isLoading ? 'Loading...' : 'Load more'}
+          load more
         </Button>
       )}
     </Box>
