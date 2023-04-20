@@ -30,7 +30,7 @@ export function getCharacterWithEpisodes(id: number): Promise<CharacterInfo> {
   return fetch(`https://rickandmortyapi.com/api/character/${id}`)
     .then((res) => res.json())
     .then(async (data) => {
-      const episodesSpliced = data.episode.splice(0, 5);
+      const episodesSpliced = data.episode;
       const episodes = episodesSpliced.map((url: string) => {
         const episodeId = url.split('/').pop() || '';
         return getEpisode(Number(episodeId));

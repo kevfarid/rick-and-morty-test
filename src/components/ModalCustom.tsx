@@ -1,5 +1,5 @@
 import { Box, IconButton } from '@chakra-ui/react';
-import { CloseIcon } from '@chakra-ui/icons';
+import { ArrowBackIcon, CloseIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 import { ReactNode, useEffect, useState } from 'react';
 
@@ -27,7 +27,23 @@ export default function ModalCustom({ children }: { children: ReactNode }) {
       alignItems='center'
       zIndex={100}
     >
-      <Box backgroundColor='gray.700' p={10} position='relative'>
+      <Box
+        backgroundColor='gray.700'
+        p={10}
+        position='relative'
+        maxHeight='70%'
+        overflow='auto'
+        minWidth={{ base: '100%', sm: '100%', lg: 600 }}
+      >
+        <IconButton
+          aria-label='Back'
+          icon={<ArrowBackIcon />}
+          position='absolute'
+          colorScheme='gray'
+          top={3}
+          left={3}
+          onClick={() => navigate(-1)}
+        />
         <IconButton
           aria-label='Close'
           icon={<CloseIcon />}

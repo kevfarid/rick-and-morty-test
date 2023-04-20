@@ -1,4 +1,4 @@
-import { Flex, Heading, Image } from '@chakra-ui/react';
+import { Flex, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 export default function Header() {

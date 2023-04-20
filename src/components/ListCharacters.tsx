@@ -13,6 +13,7 @@ export default function ListCharacters({ items }: { items: Character[] }) {
       w='100%'
       gridTemplateColumns='repeat(auto-fill,minmax(200px,1fr))'
       gridGap='1rem'
+      overflowY='auto'
     >
       {items.map((item, index) => (
         <CharacterComponent

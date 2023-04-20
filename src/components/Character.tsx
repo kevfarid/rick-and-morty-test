@@ -1,4 +1,4 @@
-import { Box, Card, Heading, Image, Text } from '@chakra-ui/react';
+import { Card, Image, Text } from '@chakra-ui/react';
 import Character from '../models/Character';
 
 interface Props extends Character {
@@ -16,7 +16,7 @@ export default function CharacterComponent({
       onClick={onClick}
       maxW='sm'
       id={id}
-      maxWidth={200}
+      maxWidth={{ base: '100%', sm: '100%', lg: 200 }}
       borderRadius={10}
       maxHeight={250}
       as='article'
@@ -28,9 +28,10 @@ export default function CharacterComponent({
       <Image
         src={image}
         alt={name}
-        width={200}
-        height={200}
+        width='100%'
+        maxHeight={200}
         borderTopRadius={10}
+        objectFit='cover'
       />
       <Text
         fontWeight='bold'
