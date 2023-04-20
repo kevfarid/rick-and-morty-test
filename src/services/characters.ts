@@ -1,6 +1,6 @@
 import Character from '../models/Character';
 import CharacterInfo from '../models/CharacterInfo';
-import Episode from '../models/Episode';
+import Episode from '../models/Episodes';
 import Responses from '../models/Responses';
 import { getEpisode } from './episodes';
 
@@ -16,7 +16,17 @@ export function getCharacters(page = 1, name = ''): Promise<FetchData> {
     .then((data) => data);
 }
 
+export function getCharacterBase(id: number) {
+  return fetch(`https://rickandmortyapi.com/api/character/${id}`).then((res) =>
+    res.json()
+  );
+}
+
 export function getCharacter(id: number): Promise<CharacterInfo> {
+  return getCharacterBase(id).then((data) => data);
+}
+
+export function getCharacterWithEpisodes(id: number): Promise<CharacterInfo> {
   return fetch(`https://rickandmortyapi.com/api/character/${id}`)
     .then((res) => res.json())
     .then(async (data) => {

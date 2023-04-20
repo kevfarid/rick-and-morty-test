@@ -12,7 +12,7 @@ import {
 import { useEffect, useState } from 'react';
 import { useParams, Link as LinkDom } from 'react-router-dom';
 import CharacterInfo from '../models/CharacterInfo';
-import { getCharacter } from '../services/characters';
+import { getCharacterWithEpisodes } from '../services/characters';
 
 export default function Character() {
   const { id } = useParams();
@@ -22,7 +22,9 @@ export default function Character() {
   );
 
   useEffect(() => {
-    getCharacter(Number(id)).then((character) => setCharacter(character));
+    getCharacterWithEpisodes(Number(id)).then((character) =>
+      setCharacter(character)
+    );
   }, [id]);
 
   return (
@@ -61,7 +63,7 @@ export default function Character() {
             <UnorderedList px={4} py={2}>
               {character.episodes?.map((episode) => (
                 <ListItem key={episode.id}>
-                  <Link as={LinkDom} to={`episode/${episode.id}`}>
+                  <Link as={LinkDom} to={`/episode/${episode.id}`}>
                     {episode.name}
                   </Link>
                 </ListItem>

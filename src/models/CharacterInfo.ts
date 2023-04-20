@@ -1,5 +1,5 @@
 import Character from './Character';
-import Episode from './Episode';
+import Episode from './Episodes';
 
 interface CharacterInfo extends Character {
   status: string;
